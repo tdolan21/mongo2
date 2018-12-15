@@ -39,9 +39,11 @@ app.engine("handlebars", exphbs({
     partialsDir: path.join(__dirname, "/views/layouts/partials")
 }));
 app.set("view engine", "handlebars");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHW";
 
+mongoose.connect(MONGODB_URI);
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/mongoHW");
+
 //mongoose.connect("mongodb://localhost/mongoscraper");
 var db = mongoose.connection;
 
